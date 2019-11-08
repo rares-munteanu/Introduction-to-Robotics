@@ -27,8 +27,8 @@ void setup() {
   
 }
 
-void setColor(int red, int green, int blue)
-{
+void setColor(int red, int green, int blue){
+  
   rOutValue=map(rInValue,0,1023,0,255);
   gOutValue=map(gInValue,0,1023,0,255);
   bOutValue=map(bInValue,0,1023,0,255);
