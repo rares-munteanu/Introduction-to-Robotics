@@ -27,11 +27,11 @@ void setup() {
   
 }
 
-void setColor(int red, int green, int blue){
+void setColor(int redValue, int greenValue, int blueValue){
   
-  rOutValue=map(rInValue,0,1023,0,255);
-  gOutValue=map(gInValue,0,1023,0,255);
-  bOutValue=map(bInValue,0,1023,0,255);
+  rOutValue=map(redValue,0,1023,0,255);
+  gOutValue=map(greenValue,0,1023,0,255);
+  bOutValue=map(blueValue,0,1023,0,255);
 
   analogWrite(ledPinR,rOutValue);
   analogWrite(ledPinG,gOutValue);
