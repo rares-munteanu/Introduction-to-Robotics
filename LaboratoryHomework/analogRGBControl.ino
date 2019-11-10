@@ -1,10 +1,10 @@
-const int inputPinR = A0;
-const int inputPinG = A1;
-const int inputPinB = A2;
+const int potPinR = A0;
+const int potPinG = A1;
+const int potPinB = A2;
 
-const int outputPinR = 3;
-const int outputPinG = 5;
-const int outputPinB = 6;
+const int ledPinR = 3;
+const int ledPinG = 5;
+const int ledPinB = 6;
 
 int rInValue = 0;
 int gInValue = 0;
@@ -17,13 +17,13 @@ int bOutValue = 0;
 
 void setup() {
   
-  pinMode(inputPinR,INPUT);
-  pinMode(inputPinG,INPUT);
-  pinMode(inputPinB,INPUT);
+  pinMode(potPinR,INPUT);
+  pinMode(potPinG,INPUT);
+  pinMode(potPinB,INPUT);
 
-  pinMode(outputPinR,OUTPUT);
-  pinMode(outputPinG,OUTPUT);
-  pinMode(outputPinB,OUTPUT);
+  pinMode(ledPinR,OUTPUT);
+  pinMode(ledPinG,OUTPUT);
+  pinMode(ledPinB,OUTPUT);
   
 }
 
@@ -33,17 +33,17 @@ void setColor(int red, int green, int blue){
   gOutValue=map(gInValue,0,1023,0,255);
   bOutValue=map(bInValue,0,1023,0,255);
 
-  analogWrite(outputPinR,rOutValue);
-  analogWrite(outputPinG,gOutValue);
-  analogWrite(outputPinB,bOutValue);
+  analogWrite(ledPinR,rOutValue);
+  analogWrite(ledPinG,gOutValue);
+  analogWrite(ledPinB,bOutValue);
   
 }
 
 void loop() {
   
-  rInValue=analogRead(inputPinR);
-  gInValue=analogRead(inputPinG);
-  bInValue=analogRead(inputPinB);
+  rInValue=analogRead(potPinR);
+  gInValue=analogRead(potPinG);
+  bInValue=analogRead(potPinB);
   setColor(rInValue,gInValue,bInValue);
   
 }
