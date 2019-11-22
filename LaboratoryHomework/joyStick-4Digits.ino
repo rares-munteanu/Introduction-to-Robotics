@@ -43,9 +43,9 @@ const byte digitMatrix[noOfDigits + 1][segSize - 1] = {
   {0, 0, 0, 0, 0, 0, 0} // pt -1
 };
 
-//int actualNumbers[] = { 0, 0, 0, 0};
 int actualNumbers[] = { -1, -1, -1, -1};
 int pointingDigit[] = {1, 0, 0, 0};
+int pointingDigit2[] = {1, 0, 0, 0};
 
 bool joyXMoved = false;
 bool joyYMoved = false;
@@ -69,6 +69,11 @@ int lastDigit = 0;
 unsigned long lastDebounceTime = 0;
 unsigned long debounceDelay = 50;
 
+unsigned blinkingInterval = 500;
+unsigned currentBlinking = 0;
+unsigned lastBlinking = 0;
+unsigned secondBlinkingInterval = 200;
+
 
 // activate the display no. received as param
 void activateDisplay(int& num) {
@@ -80,7 +85,7 @@ void activateDisplay(int& num) {
 
 }
 
-void displayValue(int value, int decimalPoint) {
+void displayValue(int value, const byte decimalPoint) {
   if (value >= 0 && value < 11)
     for (int i = 0; i < segSize - 1; i++)
       digitalWrite(segments[i], digitMatrix[value][i]);
@@ -90,14 +95,14 @@ void displayValue(int value, int decimalPoint) {
 
   // write the decimalPoint to DP pin
   digitalWrite(segments[segSize - 1], decimalPoint);
-  delay(4);
+  delay(5);
 }
 
 
-void showDisplay() {
+void showDisplay(int dpValues[]) {
   for (int j = 0; j < noOfDisplays; j++) {
     activateDisplay(j);
-    displayValue(actualNumbers[j], pointingDigit[j]);
+    displayValue(actualNumbers[j], dpValues[j]);
   }
 }
 
@@ -111,6 +116,7 @@ void setup() {
   pinMode(xAxisPin, INPUT);
   pinMode(yAxisPin, INPUT);
   pinMode(swButtonPin, INPUT_PULLUP);
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -118,7 +124,7 @@ void loop() {
   xValue = analogRead(xAxisPin);
   yValue = analogRead(yAxisPin);
   reading = digitalRead(swButtonPin);
-  showDisplay();
+  //  Serial.println(xValue);
 
   if (reading != lastButtonState)
     lastDebounceTime = millis();
@@ -129,15 +135,25 @@ void loop() {
       buttonState = reading;
 
     if (buttonState == LOW) {
-      if (lockedOnDigit == false)
+      if (lockedOnDigit == false) {
         lockedOnDigit = true;
-      else if (lockedOnValue == false)
+        for (int i = 0; i < noOfDisplays; i++)
+          pointingDigit2[i] = pointingDigit[i];
+      }
+      else if (lockedOnValue == false) {
         lockedOnValue = true;
+        for (int i = 0; i < noOfDisplays; i++)
+          pointingDigit2[i] = 0;
+        //        for (int i = 0; i < noOfDisplays; i++)
+        //          pointingDigit2[i] = pointingDigit[i];
+      }
       else
       {
         // reset all locking
         lockedOnDigit = false;
         lockedOnValue = false;
+        for (int i = 0; i < noOfDisplays; i++)
+          pointingDigit2[i] = pointingDigit[i];
       }
     }
   }
@@ -159,8 +175,16 @@ void loop() {
     if (xValue > minTreshold && xValue < maxTreshold) {
       joyXMoved = false;
     }
+    showDisplay(pointingDigit);
   }
+
   if (lockedOnValue == false && lockedOnDigit == true) {
+    currentBlinking = millis();
+    if (currentBlinking - lastBlinking > blinkingInterval) {
+      pointingDigit2[currentDigit] = 1 - pointingDigit2[currentDigit];
+      lastBlinking = currentBlinking;
+    }
+    showDisplay(pointingDigit2);
 
     if (yValue > maxTreshold && joyYMoved == false) {
       if (actualNumbers[currentDigit] == -1)
@@ -176,5 +200,8 @@ void loop() {
     if (yValue > minTreshold && yValue < maxTreshold) {
       joyYMoved = false;
     }
+  }
+  if (lockedOnValue == true && lockedOnDigit == true) {
+    showDisplay(pointingDigit2);
   }
 }
