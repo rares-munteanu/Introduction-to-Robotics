@@ -36,7 +36,6 @@ char playerName[50] = "player";
 
 
 bool playingGame = false;
-//bool endedGame = false;
 unsigned long currentTime = 0;
 unsigned long lastTime = 0;
 unsigned long currentGameTime = 0;// used with lastGameTime
@@ -54,12 +53,6 @@ void resetDisplayedMenu() {
   isEndedGameMenu = false;
 }
 
-//void resetMenu() {
-//  mainMenu = false;
-//  startGameMenu = false;
-//  highScoreMenu = false;
-//  settingsMenu = false;
-//}
 
 void displayEndedGameMenu() {
   lcd.clear();
@@ -228,10 +221,6 @@ void loop() {
   }
   if (movedUp()) {
     if (settingsMenu) {
-      //      if (cursorRowPos == 1 and !changingName and !changingStartingLevel) {
-      //        cursorRowPos = 0;
-      //        isSettingsMenu = false;
-      //      }
       if (changingName) {
         if (!isLetter) {
           playerName[currentNamePos] = letterBackup;
@@ -251,10 +240,6 @@ void loop() {
 
   if (movedDown()) {
     if (settingsMenu) {
-      //      if (cursorRowPos == 0  and !changingName and !changingStartingLevel) {
-      //        cursorRowPos = 1;
-      //        isSettingsMenu = false;
-      //      }
       if (changingName) {
         if (!isLetter) {
           playerName[currentNamePos] = letterBackup;
