@@ -11,3 +11,9 @@
 ### Third Homework   
 **fileName**:joyStick-4Digits <br/>
 **Description**:Cycling through the 4 digits of the display with x-axis of the joystick and then cycle trough the values from 0-9 with y-axis joystick. Decimal point is showing the current position. Press switch button to lock on a digit and then press again to lock completely without to be able to change the digit or the value without pressing again.
+
+### Fourth Homework   
+**fileName**:lcdGameMenu <br/>
+**Dependencies**: The headers from lcdGameMenuHeaders folder <br/>
+**Description**: A game menu made that help player to set the starting level of the game, to set the nickname and to view the highest score. Even if the arduino board is restarted the high score remain because it is save in EEPROM.<br/>
+**Video Link**: 
