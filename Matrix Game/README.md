@@ -20,9 +20,6 @@ to eeprom with player names. I will add some animations when player manage to wi
 #### LCD Display: 
 LCD Display will also have all the compulsory menus like play game, highscore(saved in eeprom), settings, 
 where players can change their names; on single-player mode you can change the starting level and so on. There will be
-also an info menu with all the informations about the game. During the gameplay, on the lcd display there will be informations
-about the player(s) like level, lives, score and so on. After every level some informations about each player gameplay will
-appear on the lcd display (reaction time, remaining lives, difference of scores etc.). After the game is finished another
-menu will appear on the screen with relevant informations about the whole gameplay.
+also an info menu with all the informations about the game. During the gameplay, on the lcd display there will be informations about the player(s) like level, lives, score and names. After every level some informations about each player gameplay will appear on the lcd display (reaction time, remaining lives, difference of scores etc.). After the game is finished another menu will appear on the screen with relevant informations about the whole gameplay (if the player has managed to beat highscore, best reaction time, etc). A congratulate menu will appear and pressing the joystick button will get the player back to main menu.
 
 
