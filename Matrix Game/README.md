@@ -26,4 +26,4 @@ LCD Display also have all the compulsory menus like play game, highscore(saved i
 where players can change their names; You can change the starting level and so on. There will be
 also an info menu with all the informations about the game. After the game is finished a congratulate menu will appear and pressing the joystick button will get the player back to main menu.
 
-### Video Link:https://www.youtube.com/watch?v=XB8CjM2mDLM&feature=youtu.be
+### Video Link: https://www.youtube.com/watch?v=XB8CjM2mDLM&feature=youtu.be
