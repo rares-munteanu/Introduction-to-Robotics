@@ -4,7 +4,7 @@
 #include <SoftwareSerial.h>
 #include <DFPlayerMini_Fast.h>
 
-SoftwareSerial mySerial(6, 5); // RX, TX
+SoftwareSerial mySerial(5, 6); // RX, TX
 DFPlayerMini_Fast myMP3;
 
 button volume(4, 100);
