@@ -24,6 +24,6 @@ to eeprom with player names. I also have animations before starting the game.
 #### LCD Display: 
 LCD Display also have all the compulsory menus like play game, highscore(saved in eeprom), settings, 
 where players can change their names; You can change the starting level and so on. There will be
-also an info menu with all the informations about the game. During the gameplay, on the lcd display there will be informations about the player(s) like level, lives, score and names. After every level some informations about each player gameplay will appear on the lcd display (reaction time, remaining lives, difference of scores etc.). After the game is finished another menu will appear on the screen with relevant informations about the whole gameplay (if the player has managed to beat highscore, best reaction time, etc). A congratulate menu will appear and pressing the joystick button will get the player back to main menu.
+also an info menu with all the informations about the game. After the game is finished a congratulate menu will appear and pressing the joystick button will get the player back to main menu.
 
 ### Video Link:https://www.youtube.com/watch?v=fn_ITJ-UDu8&feature=youtu.be
