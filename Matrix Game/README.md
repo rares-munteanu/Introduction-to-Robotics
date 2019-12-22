@@ -3,7 +3,7 @@
 ### Description:
 **Reverse It** is an interactive single and multiplayer game where "instructions" are spawned on the screen and the player shall
 have to reverse them shortly after they have appeared using a joystick in order to increase the score. For the beginning the game "instructions"
-will be just random directed arrows (up,left,right,down) displayed on the led matrix. Every level will contain certain number
+will be just random directed arrows (up,left,right,down,down-left,down-right) displayed on the led matrix. Every level will contain certain number
 of arrows displayed (one after another). Reversing them corectly will increase score and after the player finishes the level 
 the interval in which he has to execute the reverse move of pointing arrow will decrease.
 
