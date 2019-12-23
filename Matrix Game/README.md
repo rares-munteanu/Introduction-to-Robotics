@@ -5,7 +5,6 @@
 ### Project details:
 <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/firstImage.jpg" width="70%" height="70%"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/secondImage.jpg" width="30%" height="30%">
 
-
 #### Components used:
  - 1 Liquid Crystal Display
  - 1 8x8 Matrix Led
@@ -15,6 +14,8 @@
  - 1 switch button
  - 1 DFPlayer mini ( small mp3 player)
 
+Speakers wiring
+<img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/speakersImage.jpg" width="30%" height="30%">
 
 #
 
