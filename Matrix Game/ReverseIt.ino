@@ -1,22 +1,26 @@
 #include "Button.h"
 #include "Game.h"
-#include "EEPROM_writeAnything.h"
+#include "EEPROM_read.h"
 #include <SoftwareSerial.h>
 #include <DFPlayerMini_Fast.h>
 
+//Backgound music setup
 SoftwareSerial mySerial(5, 6); // RX, TX
 DFPlayerMini_Fast myMP3;
-
 button volume(4, 100);
 button playPause(3, 100);
 button nextSong(2, 100);
-unsigned currentVolume = 20;
-bool paused = true;
+unsigned currentVolume = 7;
+bool volPressed = false;
+bool paused = false;
 
 void manageDfPlayer() {
   if (volume.isPressed()) {
-    myMP3.volume(30 - currentVolume);
-    currentVolume = 30 - currentVolume;
+    if (volPressed)
+      myMP3.volume(currentVolume);
+    else
+      myMP3.volume(15);
+    volPressed = !volPressed;
   }
   if (playPause.isPressed()) {
     if (paused)
@@ -30,43 +34,28 @@ void manageDfPlayer() {
   }
 }
 
+//Gaming buttons
 button leftButton(8, 100);
 button rightButton(9, 100);
-
-
 
 void setup() {
   Serial.begin(9600);
   lcd.begin(16, 2);
   lcd.init();
   lcd.backlight();
-  matrix.shutdown(0, false); // first driver  turned on always
-  matrix.setIntensity(0, 5); // intensity : 0-15;
-  matrix.clearDisplay(0); // clear display on first driver
+  matrix.shutdown(0, false);
+  matrix.setIntensity(0, 10);
+  matrix.clearDisplay(0);
   randomSeed(analogRead(A3));
   mySerial.begin(9600);
   myMP3.begin(mySerial);
   myMP3.play(1);
   welcomeScreen();
-
+  myMP3.volume(5);
+  readNamesAndScores(); //Read the last 3 highScores and names associated
 }
 
-void manageAnimations() {
-  if (animationStatus[1])
-    trackAnimation(1);
-
-  if (animationStatus[0])
-    trackAnimation(0);
-
-  if (animationStatus[0] and animationsOffset[0] == animationSize[0]) {
-    animationStatus[0] = false;
-    gameStarted = true;
-    changeMenu(1);
-    displayMenu();
-    Serial.println("Entered");
-  }
-}
-
+//Gameplay moves
 short int playerMove() {
   if (joy.movedUp()) return 1; // corresponding to down arrow
   if (joy.movedDown()) return 0; //corresponding to up arrow etc.
@@ -77,22 +66,35 @@ short int playerMove() {
   return -1; //For no move;
 }
 
-
-byte timeBar[8] {1, 1, 1, 1, 1, 1, 1, 1};
-byte timeBarPos = 7;
-byte randomArrow;
-
-void displayTimeBar() {
-  for (int i = 0; i < 8; i++)
-    matrix.setLed(0, i, 0, timeBar[i]);
-}
-void resetTimeBar() {
-  for (int i = 0; i < 8; i++)
-    timeBar[i] = 1;
+bool madeHighScore() {
+  if (score > highScores[0] or score > highScores[1] or score > highScores[2])
+    return true;
+  return false;
 }
 
-//byte scoresValues[]{
-byte goodMoves = 0;;
+//After gameplay has finished we check if the player made it to highScore and update EEPROM if it's the case
+void manageHighScore() {
+  if (score > highScores[0]) {
+    strcpy(highScoreNames[2], highScoreNames[1]);
+    highScores[2] = highScores[1];
+    strcpy(highScoreNames[1], highScoreNames[0]);
+    highScores[1] = highScores[0];
+    strcpy(highScoreNames[0], playerName);
+    highScores[0] = score;
+  }
+  else if (score > highScores[1]) {
+    strcpy(highScoreNames[2], highScoreNames[1]);
+    highScores[2] = highScores[1];
+    strcpy(highScoreNames[1], playerName);
+    highScores[1] = score;
+  }
+  else if (score > highScores[2]) {
+    strcpy(highScoreNames[2], playerName);
+    highScores[2] = score;
+  }
+  if (madeHighScore())
+    writeNamesAndScores();
+}
 
 void loop() {
   manageAnimations();
@@ -106,10 +108,9 @@ void loop() {
       if (startBlinking[1])
         blinkStartingLevel();
     }
-    else {
-      //      Serial.println(currentMenu);
+    else { //Game started
       if (millis() - lastGameUpdate[0] > gameUpdateIntervals[0] or playerMove_ != -1) { //Time to display another arrow
-        if (playerMove_ == -1) {
+        if (playerMove_ == -1) { //If it's time to display another arrow and player did't react decrease one live
           gameInfoUpdated = false;
           lives--;
         }
@@ -121,55 +122,47 @@ void loop() {
         lastGameUpdate[0] = millis();
         lastGameUpdate[1] = millis();
       }
-      if (millis() - lastGameUpdate[1] > gameUpdateIntervals[1]) {
+      if (millis() - lastGameUpdate[1] > gameUpdateIntervals[1]) { //Decrease the time bar
         matrix.setLed(0, timeBarPos, 0, false);
         timeBarPos --;
         lastGameUpdate[1] = millis();
       }
 
       playerMove_ = playerMove();
-
-      if (playerMove_ == randomArrow) {
-        score += level * 3 + 10;
+      if (playerMove_ == randomArrow) { //Player moved correctly
+        score += 3 * level + 7 * timeBarPos; //update the score based on reaction time;
         goodMoves++;
-        if (goodMoves == 10) {
+        if (goodMoves == 10) {  //Completed a level
           level++;
-          gameUpdateIntervals[0] -= 240;
-          gameUpdateIntervals[1] -= 30;
+          gameUpdateIntervals[0] -= 280; //Decrease react time
+          gameUpdateIntervals[1] -= 35;
           goodMoves = 0;
         }
         gameInfoUpdated = false;
       }
-      else if (playerMove_ != -1) {
+      else if (playerMove_ != -1) { //Player moved wrong
         lives--;
         gameInfoUpdated = false;
       }
-      if (lives == 0) {
+      if (lives <= 0) { //Player lost
         gameStarted = false;
-        changeMenu(10);
-        animationStatus[1] = true;
-        if (score > highScores[0]) {
-          strcpy(highScoreNames[0], playerName);
-          highScores[0] = score;
-        }
-        else if (score > highScores[1]) {
-          strcpy(highScoreNames[1], playerName);
-          highScores[1] = score;
-        }
-        else if (score > highScores[2]) {
-          strcpy(highScoreNames[2], playerName);
-          highScores[2] = score;
-        }
+        if (madeHighScore())
+          changeMenu(11);
+        else
+          changeMenu(10);
+        resetAnimations();
+        manageHighScore();
       }
-      else {
-
+      if (level ==  11) { // Player Won the game menu
+        level--;
+        gameStarted = false;
+        changeMenu(12);
+        resetAnimations();
+        manageHighScore();
       }
       if (!gameInfoUpdated)
         updateGameInfo();
-      //      Serial.println(playerMove_);
-      Serial.println(lives);
     }
-
   }
   else if (millis() > welcomeScreenInterval)
     wScreen = false;

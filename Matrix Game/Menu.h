@@ -1,41 +1,42 @@
 #ifndef MENU_H
 #define MENU_H
-#include "LiquidCrystal_I2C.h"
+#include <LiquidCrystal_I2C.h>
 #include "CommonVariables.h"
-#include <PROGMEM_readAnything.h>
+#include "PROGMEM_readAnything.h"
 #include "Joystick.h"
+
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 joystick joy(A0, A1, A2, 350, 750, false);
 
-char buffer[30];
+char buffer[30]; //A temporary for reading menus titles from PROGMEM
 const char cursor = 0x7E;
 const char leftArrow = 0x7F;
 const char rightArrow = 0x7E;
 
-bool isMenu[] {false, false, false, false, false, false, false, false, false, false, false};
-const bool showCursor[] PROGMEM {true, false, false, true, false, false, false, false, false, false, false};
+bool isMenu[] {false, false, false, false, false, false, false, false, false, false, false, false, false, false}; //Used to check if currentMenu is already displayed
+const bool showCursor[] PROGMEM {true, false, false, true, false, false, false, false, false, false, false, false, false, false};
 bool displayed[] {false, false, false}; // For cursor, name and startingLevel
 
-byte letterPos = 0;
-unsigned long long lastBlink [] {0, 0};
-unsigned blinkInterval[] {200, 300};
-bool blinked[] {false, false};
-bool startBlinking[] {false, false};
+byte letterPos = 0; //For checking current position in alphabet when changing the player nickname
+unsigned long long lastBlink [] {0, 0};   //  ↓
+unsigned blinkInterval[] {200, 300};    // For blinking letters from alphabet and starting level when the player wants to modify them
+bool blinked[] {false, false};        //      ↑
+bool startBlinking[] {false, false}; //       ↑
 
-byte currentPos = 0;
+bool gameInfoUpdated = false;       //  Used to update score level and lives during gameplay
+bool endGameInfoUpdated = false;   //   Used to update score level and lives after game has finished
+
+byte currentPos = 0;   //Cursor position
 byte currentMenu = 0;
 byte startingLevel = 1;
 
-char highScoreNames[3][11] = {"Rares", "Daniela", "Alexandra"};
-unsigned highScores[3] = {400, 200, 100};
-
-
-const byte menusLength[11] {4, 3, 3, 2, 3, 4, 2, 2, 2, 1, 2};
-
-//char alphabet[] {"abcdefghijklmnopqrstuvwxyz"};
 char playerName[11] = {"Player"};
+char highScoreNames[3][11] = {"", "", ""};
+unsigned highScores[3] = {0, 0, 0};
 
-const char menusInfo[11][4][30] PROGMEM {
+const byte menusLength[] {4, 3, 3, 2, 3, 4, 2, 2, 2, 1, 1, 2, 2, 3};
+
+const char menusInfo[][4][30] PROGMEM {
   {"Start", "HScore", "Settings", "Info"},
   {"Lives:", "Level:", "Score:"},
   {"Name", "Score", "->"},
@@ -46,10 +47,13 @@ const char menusInfo[11][4][30] PROGMEM {
   {"abcdefghijklmnop", "qrstuvwxyz"},
   {"ABCDEFGHIJKLMNOP", "QRSTUVWXYZ"},
   {"<-"},//Used for displayHighScore function to have a second case for switch
-  {"Congratulations", "Press JSB to exit"}
+  {"Game Over!"},
+  {"You made it", "to HighScore!"},
+  {"Congrats, You", "won the game!!"},
+  {"Name:", "Lvl:", "Score:"}
 };
 
-
+//Poisiton of menus printing (where to set the cursor)
 const byte menusPos[][4][2] PROGMEM {
   {
     {1, 0},
@@ -91,17 +95,32 @@ const byte menusPos[][4][2] PROGMEM {
     {0, 1}
   },
   {
-    {0, 0}, //^
+    {0, 0}, //↑
     {0, 1}
   },
   {
     {0, 0} //HScore second Screen
   },
   {
-    {0, 0},
+    {0, 0}, //Game over
     {0, 1}
-  }
+  },
+  {
+    {0, 0}, //Made it to highScore
+    {0, 1}
+  },
+  {
+    {0, 0}, //Won the game
+    {0, 1}
+  },
+  {
+    {0, 0}, //Game information after gameplay
+    {0, 1},
+    {6, 1}
+  },
 };
+
+//Cursor position where it's case ( used it only in settings menu and main menu )
 const byte cursorPosition[][5][2] PROGMEM{
   {
     {0, 0},
@@ -124,21 +143,22 @@ const byte cursorPosition[][5][2] PROGMEM{
   }
 };
 
+//Erease cursor from screen
 void clearCurrentPos() {
-  if (PROGMEM_getAnything(&showCursor[currentMenu])) {
-    lcd.setCursor(PROGMEM_getAnything(&cursorPosition[currentMenu][currentPos][0]), PROGMEM_getAnything(&cursorPosition[currentMenu][currentPos][1]));
+  if (PROGMEM_get(&showCursor[currentMenu])) {
+    lcd.setCursor(PROGMEM_get(&cursorPosition[currentMenu][currentPos][0]), PROGMEM_get(&cursorPosition[currentMenu][currentPos][1]));
     lcd.print(F(" "));
   }
 }
 
+//Display cursor
 void displayCurrentPos() {
-  if (PROGMEM_getAnything(&showCursor[currentMenu])) {
-    lcd.setCursor(PROGMEM_getAnything(&cursorPosition[currentMenu][currentPos][0]), PROGMEM_getAnything(&cursorPosition[currentMenu][currentPos][1]));
+  if (PROGMEM_get(&showCursor[currentMenu])) {
+    lcd.setCursor(PROGMEM_get(&cursorPosition[currentMenu][currentPos][0]), PROGMEM_get(&cursorPosition[currentMenu][currentPos][1]));
     lcd.print(cursor);
     displayed[0] = true;
   }
 }
-
 
 void displayPlayerName() {
   if (currentMenu == 3) {
@@ -156,6 +176,7 @@ void displayStartingLevel() {
   }
 }
 
+//Display highScore when the player is in highScore Menu
 void displayHScore() {
   switch (currentMenu) {
     case 2: {
@@ -179,7 +200,7 @@ void displayHScore() {
   }
 }
 
-bool gameInfoUpdated = false;
+//Update score level and lives during gameplay
 void updateGameInfo() {
   if (currentMenu == 1 and gameStarted) {
     lcd.setCursor(6, 0);
@@ -192,13 +213,26 @@ void updateGameInfo() {
   }
 }
 
+//Update score level and lives during gameplay
+void endGameInfo() {
+  if (currentMenu == 13 and gameStarted == false) {
+    lcd.setCursor(5, 0);
+    lcd.print(playerName);
+    lcd.setCursor(4, 1);
+    lcd.print(level);
+    lcd.setCursor(12, 1);
+    lcd.print(score);
+    endGameInfoUpdated = true;
+  }
+}
 
+//Function to display the currentMenu information from menusInfo and update some menu information if it's the case
 void displayMenu() {
   if (!isMenu[currentMenu]) {
     lcd.clear();
     for (int i = 0; i < menusLength[currentMenu]; i++) {
-      lcd.setCursor(PROGMEM_getAnything(&menusPos[currentMenu][i][0]), PROGMEM_getAnything(&menusPos[currentMenu][i][1]));
-      PROGMEM_readAnything(&menusInfo[currentMenu][i], buffer);
+      lcd.setCursor(PROGMEM_get(&menusPos[currentMenu][i][0]), PROGMEM_get(&menusPos[currentMenu][i][1]));
+      PROGMEM_read(&menusInfo[currentMenu][i], buffer);
       if (strcmp(buffer, "->") == 0)
         lcd.print(rightArrow);
       else {
@@ -219,11 +253,13 @@ void displayMenu() {
     displayStartingLevel();
   if (!gameInfoUpdated)
     updateGameInfo();
+  if (!endGameInfoUpdated)
+    endGameInfo();
 }
 
 void restoreLetter() {
   lcd.setCursor(letterPos - 16 * (letterPos >= 16), (letterPos >= 16));
-  lcd.print(PROGMEM_getAnything(&menusInfo[currentMenu][letterPos >= 16][letterPos - 16 * (letterPos >= 16)]));
+  lcd.print(PROGMEM_get(&menusInfo[currentMenu][letterPos >= 16][letterPos - 16 * (letterPos >= 16)]));
 }
 
 void blinkLetter() {
@@ -278,12 +314,11 @@ byte whatMove() {
   return 0;
 }
 
-
+//Based on whatMove player does this function update the menu consequently
 void updateMenu() {
   const byte joyMove = whatMove();
   switch (joyMove) {
-    case 1: { //Moved Up
-        //Nothing for now
+    case 1: { //Moved Up , commonly used to exit sub menus
         switch (currentMenu) {
           case 1: {
               changeMenu(0);
@@ -295,7 +330,7 @@ void updateMenu() {
             }
           case 3: {
               if (startBlinking[1]) {
-                if (startingLevel < 15)
+                if (startingLevel < 10)
                   startingLevel ++;
               }
               else
@@ -319,11 +354,11 @@ void updateMenu() {
         }
         break;
       }
-    case 2: { //MovedDown
+    case 2: { //MovedDown, Used for changing alphabet to uppercase and modify starting level value
         switch (currentMenu) {
           case 3: {
               if (startBlinking[1])
-                if (startingLevel > 0)
+                if (startingLevel > 1)
                   startingLevel--;
               break;
             }
@@ -340,8 +375,8 @@ void updateMenu() {
         }
         break;
       }
-    case 3: { //MovedRight
-        if (PROGMEM_getAnything(&showCursor[currentMenu])) {
+    case 3: { //MovedRight, used for changing the cursor position or changing info and highscore menus or going through alphabet letters when changing the name
+        if (PROGMEM_get(&showCursor[currentMenu])) {
           if (!startBlinking[1]) {
             clearCurrentPos();
             currentPos = (currentPos + 1) % menusLength[currentMenu];
@@ -372,8 +407,8 @@ void updateMenu() {
         }
         break;
       }
-    case 4: { //MovedLeft
-        if (PROGMEM_getAnything(&showCursor[currentMenu])) {
+    case 4: { //MovedLeft, used for changing the cursor position or changing info and highscore menus or going through alphabet letters when changing the name
+        if (PROGMEM_get(&showCursor[currentMenu])) {
           if (!startBlinking[1]) {
             clearCurrentPos();
             currentPos = (currentPos - 1 + menusLength[currentMenu]) % menusLength[currentMenu];
@@ -404,19 +439,19 @@ void updateMenu() {
         }
         break;
       }
-    case 5: {
+    case 5: { //Joystick button is pressed, used to change menus commonly, or setting up name and starting level
         switch (currentMenu) {
           case 0: {
               switch (currentPos) {
                 case 0 : {
-                    //                    changeMenu(1);
-                    animationStatus[0] = true;
+                    animationStatus[2] = true;
                     animationStatus[1] = false;
                     level = startingLevel;
                     score = 0;
                     lives = 3;
-                    gameUpdateIntervals[0] = 2400;
-                    gameUpdateIntervals[1] = 300;
+                    goodMoves = 0;
+                    gameUpdateIntervals[0] = 3200 - 280 * startingLevel;
+                    gameUpdateIntervals[1] = 400 - 35 * startingLevel;
                     playerMove_ = 1;
                     break;
                   }
@@ -457,12 +492,17 @@ void updateMenu() {
           case 7: case 8: {
               if (strlen(playerName) <= 10) {
                 char ch;
-                PROGMEM_readAnything(&menusInfo[currentMenu][letterPos >= 16][letterPos - 16 * (letterPos >= 16)], ch);
+                PROGMEM_read(&menusInfo[currentMenu][letterPos >= 16][letterPos - 16 * (letterPos >= 16)], ch);
                 strncat(playerName, &ch, 1);
               }
               break;
             }
-          case 10: {
+          case 10: case 11: case 12: {
+              changeMenu(13);
+              endGameInfoUpdated = false;
+              break;
+            }
+          case 13: {
               changeMenu(0);
               break;
             }
@@ -479,9 +519,7 @@ void welcomeScreen() {
   lcd.setCursor(0, 1);
   lcd.print("Happy Holidays!");
 }
-bool wScreen = false;
+bool wScreen = true;
 unsigned welcomeScreenInterval = 5000;
-
-
 
 #endif

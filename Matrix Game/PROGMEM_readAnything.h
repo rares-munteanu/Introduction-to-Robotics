@@ -3,16 +3,17 @@
 
 #include <Arduino.h>  // for type definitions
 
-template <typename T> void PROGMEM_readAnything(const T* sce, T& dest)
+//Functions to read any data type from PROGMEM
+template <typename T> void PROGMEM_read(const T* sce, T& dest)
 {
-    memcpy_P(&dest, sce, sizeof(T));
+  memcpy_P(&dest, sce, sizeof(T));
 }
 
-template <typename T> T PROGMEM_getAnything(const T* sce)
+template <typename T> T PROGMEM_get(const T* sce)
 {
-    static T temp;
-    memcpy_P(&temp, sce, sizeof(T));
-    return temp;
+  static T temp;
+  memcpy_P(&temp, sce, sizeof(T));
+  return temp;
 }
 
 #endif

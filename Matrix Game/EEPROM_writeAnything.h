@@ -4,7 +4,8 @@
 #include <EEPROM.h>
 #include <Arduino.h>  // for type definitions
 
-template <class T> int EEPROM_writeAnything(int ee, const T& value)
+//Functions to read and write any data type in EEPROM
+template <class T> int EEPROM_write(int ee, const T& value)
 {
     const byte* p = (const byte*)(const void*)&value;
     unsigned int i;
@@ -13,7 +14,7 @@ template <class T> int EEPROM_writeAnything(int ee, const T& value)
     return i;
 }
 
-template <class T> int EEPROM_readAnything(int ee, T& value)
+template <class T> int EEPROM_read(int ee, T& value)
 {
     byte* p = (byte*)(void*)&value;
     unsigned int i;
