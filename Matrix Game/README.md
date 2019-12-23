@@ -1,12 +1,11 @@
-# Matrix Game  
-### Name: Reverse It  
-### Description:
-**Reverse It** is an interactive single and multiplayer game where "instructions" are spawned on the screen and the player shall
-have to reverse them shortly after they have appeared using a joystick in order to increase the score. For the beginning the game "instructions" will be just random directed arrows (up,left,right,down,down-left,down-right) displayed on the led matrix. Every level will contain certain number of arrows displayed (one after another). Reversing them corectly will increase score and after the player finishes the level the interval in which he has to execute the reverse move of pointing arrow will decrease.
+# Matrix Game 
+## Name:  ***Reverse It*** 
+### Description: 
+**Reverse It** is an *interactive* single player game that is challenging players *reaction time*. It is a simple but quite hard game to win. It has a total of 10 levels, each level having it's own time pressure. The player has 3 lives during the entire gameplay, in order to win the game. The *logic* of the game is inspired by the fact that brain tends to *reproduce* the movements it sees. So, a ,,good move" that brings you score in this game is to actually reverse the "instruction" displayed by the led matrix. How this game is actually played I will explain in the following.
+### Project details:
+<img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/firstImage.jpg" width="100%" height="100%">
 
-<img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/cTree.gif" width="300" height="400">
-
-
+#
 
 ### How to play: 
 You have a joystick and 2 buttons below the led matrix. Random arrows pointing in 6 different positions will appear on screen. You have to do the reversed action of what arrow is telling you. For example if arrow is pointing down-left you have to press the right  button below the matrix, and so on.
@@ -28,3 +27,4 @@ where players can change their names; You can change the starting level and so o
 also an info menu with all the informations about the game. After the game is finished a congratulate menu will appear and pressing the joystick button will get the player back to main menu.
 
 ### [Demo Video Link](https://www.youtube.com/watch?v=ipwmN_Qqrns&feature=youtu.be)
+
