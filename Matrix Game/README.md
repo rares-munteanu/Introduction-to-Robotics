@@ -6,8 +6,7 @@ have to reverse them shortly after they have appeared using a joystick in order 
 
 <img src="Images/cTree.gif" width="300" height="400">
 
-http://github.com - automatic!
-[GitHub](http://github.com)
+
 
 ### How to play: 
 You have a joystick and 2 buttons below the led matrix. Random arrows pointing in 6 different positions will appear on screen. You have to do the reversed action of what arrow is telling you. For example if arrow is pointing down-left you have to press the right  button below the matrix, and so on.
@@ -28,4 +27,4 @@ LCD Display also have all the compulsory menus like play game, highscore(saved i
 where players can change their names; You can change the starting level and so on. There will be
 also an info menu with all the informations about the game. After the game is finished a congratulate menu will appear and pressing the joystick button will get the player back to main menu.
 
-### Video Link: https://www.youtube.com/watch?v=XB8CjM2mDLM&feature=youtu.be
+## [Video Link](http://github.com)
