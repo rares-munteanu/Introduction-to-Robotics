@@ -7,7 +7,6 @@
 
 <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/firstImage.jpg" width="70%" height="70%"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/secondImage.jpg" width="30%" height="30%">
 
-<img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/thirdImage.jpg" width="90%" height="90%"> 
 #### Components used:
  - 1 Liquid Crystal Display
  - 1 8x8 Matrix Led
