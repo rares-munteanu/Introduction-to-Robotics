@@ -3,11 +3,12 @@
 ### Description: 
 **Reverse It** is an *interactive* single player game that is challenging players *reaction time*. It is a simple but quite hard game to win. It has a total of 10 levels, each level having it's own time pressure. The player has 3 lives during the entire gameplay, in order to win the game. The *logic* of the game is inspired by the fact that brain tends to *reproduce* the movements it sees. So, a ,,good move" that brings you score in this game is to actually reverse the "instruction" displayed by the led matrix. How this game is actually played I will explain in the following.
 ### Project details:
-<img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/firstImage.jpg" width="100%" height="100%">
+<img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/firstImage.jpg" width="80%" height="80%">
 
 #
 
 ### How to play: 
+
 You have a joystick and 2 buttons below the led matrix. Random arrows pointing in 6 different positions will appear on screen. You have to do the reversed action of what arrow is telling you. For example if arrow is pointing down-left you have to press the right  button below the matrix, and so on.
 
 
@@ -27,4 +28,3 @@ where players can change their names; You can change the starting level and so o
 also an info menu with all the informations about the game. After the game is finished a congratulate menu will appear and pressing the joystick button will get the player back to main menu.
 
 ### [Demo Video Link](https://www.youtube.com/watch?v=ipwmN_Qqrns&feature=youtu.be)
-
