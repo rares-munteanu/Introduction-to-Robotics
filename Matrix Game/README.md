@@ -6,6 +6,8 @@ have to reverse them shortly after they have appeared using a joystick in order 
 
 <img src="Images/cTree.gif" width="300" height="400">
 
+http://github.com - automatic!
+[GitHub](http://github.com)
 
 ### How to play: 
 You have a joystick and 2 buttons below the led matrix. Random arrows pointing in 6 different positions will appear on screen. You have to do the reversed action of what arrow is telling you. For example if arrow is pointing down-left you have to press the right  button below the matrix, and so on.
