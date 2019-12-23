@@ -1,3 +1,4 @@
+
 # Matrix Game 
 ## Name:  ***Reverse It*** 
 ### Description: 
@@ -14,8 +15,12 @@
  - 1 switch button
  - 1 DFPlayer mini ( small mp3 player)
 
-Speakers wiring
-<img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/speakersImage.jpg" width="30%" height="30%">
+| Speakers wiring |<img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/speakersImage.jpg" width="30%" height="30%">  |
+|--|--|
+| DFPlayer mini schematic |<img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/speakersImage.jpg" width="30%" height="30%">  |
+
+
+
 
 #
 
