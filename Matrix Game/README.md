@@ -7,6 +7,8 @@ will be just random directed arrows (up,left,right,down,down-left,down-right) di
 of arrows displayed (one after another). Reversing them corectly will increase score and after the player finishes the level 
 the interval in which he has to execute the reverse move of pointing arrow will decrease.
 
+![alt text](Images/firstImage.jpg)
+
 ### How to play: 
 You have a joystick and 2 buttons below the led matrix. Random arrows pointing in 6 different positions will appear on screen. You have to do the reversed action of what arrow is telling you. For example if arrow is pointing down-left you have to press the right  button below the matrix, and so on.
 
