@@ -17,8 +17,11 @@
 
 | Component | Schematic |
 |--|--|
-| Speakers wiring |<img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/speakersImage.jpg" width="30%" height="30%">  |
-| DFPlayer mini schematic |  <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/dfPlayer.jpg" width="30%" height="30%">|
+| Speakers |<img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/speakersImage.jpg" width="70%" height="70%">  |
+| DFPlayer mini |  <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/dfPlayer.jpg" width="70%" height="70%">|
+| MAX7219 driver |  <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/matrixDriver.jpg" width="70%" height="70%">|
+
+
 
 
 
