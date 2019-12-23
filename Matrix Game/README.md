@@ -18,17 +18,18 @@
 
 | Component | Schematic |
 |--|--|
-| Speakers |<img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/speakersImage.jpg" width="70%" height="70%">  |
-| DFPlayer mini |  <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/dfPlayer.jpg" width="70%" height="70%">|
-| MAX7219 driver |  <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/matrixDriver.jpg" width="70%" height="70%">|
+| Speakers |<p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/speakersImage.jpg" width="70%" height="70%"></p>  |
+| DFPlayer mini | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/dfPlayer.jpg" width="70%" height="70%"></p>|
+| MAX7219 driver | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/matrixDriver.jpg" width="70%" height="70%"></p>|
 
+#
 
-
-
-
-
-
-
+#### Animations on matrix led:
+| Name and usage| Animation |
+|--|--|
+|Christmas Tree while driving through menu|  <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/cTree.gif" width="50%" height="50%"> |
+|  |  |
+|  |  |
 
 #
 
