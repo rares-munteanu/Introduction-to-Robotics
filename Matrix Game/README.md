@@ -24,12 +24,12 @@
 
 #
 
-#### Animations on matrix led:
+### Animations on matrix led:
 | Name and usage| Animation |
 |--|--|
 |Christmas Tree while you walk through the menu|  <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/cTree.gif" width="50%" height="50%"> <p>|
 | Start Game animation | <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/startAnimation.gif" width="50%" height="50%"> <p> |
-|  |  |
+| Reaction time bar | <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/timeBar.gif" width="50%" height="50%"> <p>  |
 
 #
 
