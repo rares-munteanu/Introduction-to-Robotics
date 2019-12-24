@@ -48,5 +48,4 @@ I built several menus on liquid crystal display in order to show important detai
 |---|---|---|
 |  <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/settings.JPG" width="100%" height="100%"></p> | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/info1.JPG" width="100%" height="100%"></p>  | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/info2.JPG" width="100%" height="100%"></p>  |
 
-
 ### [All functionalities video](https://www.youtube.com/watch?v=ipwmN_Qqrns&feature=youtu.be)
