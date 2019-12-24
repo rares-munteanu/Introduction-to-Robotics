@@ -34,9 +34,13 @@
 
 
 ### *How to play:* 
+You have a joystick and 2 buttons below the led matrix. Random arrows pointing in 6 different positions will appear on screen. You have to do the reversed action of what arrow is telling you. For example if arrow is pointing down-left you have to press the right  button below the matrix, and so on.
 
-| You have a joystick and 2 buttons below the led matrix. Random arrows pointing in 6 different positions will appear on screen. You have to do the reversed action of what arrow is telling you. For example if arrow is pointing down-left you have to press the right  button below the matrix, and so on.| <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/downArrow.JPG" width="40%" height="40%"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/upArrow.JPG" width="40%" height="40%"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/leftArrow.JPG" width="40%" height="40%"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/rightArrow.JPG" width="40%" height="40%">|
-|--|--|
+|  <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/downArrow.JPG" width="30%" height="30%"> | <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/upArrow.JPG" width="30%" height="30%">  | <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/leftArrow.JPG" width="30%" height="30%">  |
+|---|---|---|
+|   <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/rightArrow.JPG" width="30%" height="30%">|  <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/left-downArrow.JPG" width="30%" height="30%"> |  <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/rightDown-arrow.JPG" width="30%" height="30%"> |
+
+
 
 
 ### How to play: 
