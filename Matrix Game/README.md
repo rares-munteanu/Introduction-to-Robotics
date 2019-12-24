@@ -32,9 +32,8 @@
 
 #
 
-
 ### *How to play:* 
-You have a joystick and 2 buttons below the led matrix. Random arrows pointing in 6 different positions will appear on screen. You have to do the reversed action of what arrow is telling you. For example if arrow is pointing down-left you have to press the right  button below the matrix, and so on.
+There are a joystick and 2 buttons below the led matrix. Random arrows pointing in 6 different positions will appear on screen. Player have to do the exact reversed action. For example if  a pointing up arrow is respawn on the matrix led he has to swipe down with the joystick, if a pointing left-down arrow is respawn, the player has to press right button below the matrix led. Sounds simple, but it is not when there is also time pressure. First row of the matrix represents how much time remained for the player to react. If the time bar dropped to zero, and the player didn't react, he will lose one life.
 
 | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/downArrow.JPG" width="100%" height="100%"></p> | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/upArrow.JPG" width="100%" height="100%"> </p> | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/leftArrow.JPG" width="100%" height="100%"> </p> |
 |---|---|---|
