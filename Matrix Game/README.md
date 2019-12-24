@@ -44,11 +44,9 @@ There are a joystick and 2 buttons below the led matrix. Random arrows pointing 
 I built several menus on liquid crystal display in order to show important details about the game and make a small setup before the actual gameplay. In "***HScore***" menu you can see last 3 high scores and the names associated. Interesting fact is that every high score made is saved in EEPROM and even though the arduino is shutted down the high scores will remain the same. In "***Settings***" menu the player can change his nickname and he can choose from what level to start (remember that starting from higher level won't give you an advantage but on the contrary you will get to a certain level with lower score than if you would have started from level 1). In "***Info***" menu there will be displayed the game name, my name, my github link and my robotics class name from University of Bucharest.
 
 
-|  LCD menus | Image  |
-|---|---|
-|  Welcome screen |  <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/wScreen.JPG" width="100%" height="100%"></p> |
-| Main menu  |  <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/mainMenu.JPG" width="100%" height="100%"></p> |
-|  HScore menu |  <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/highScore.JPG" width="100%" height="100%"></p>  |
+|  <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/wScreen.JPG" width="100%" height="100%"></p>  |  <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/mainMenu.JPG" width="100%" height="100%"></p>   |  <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/highScore.JPG" width="100%" height="100%"></p>  |
+|---|---|---|
+|   |   |   |
 
 
 ### [Demo Video Link](https://www.youtube.com/watch?v=ipwmN_Qqrns&feature=youtu.be)
