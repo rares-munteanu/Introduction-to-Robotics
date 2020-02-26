@@ -24,7 +24,7 @@
 
 #
 ### *How it actually works:*
-The arduino mega board is getting sample results from all of the force sensing resistors and if it detects the fact that none of them or just one is pressed or there is some pressure on the sensor, it will warn the driver to place both of his hands on the steering wheel.How? Through the red led and also through the speaker using pre-established voice bots. All you have to do is to configure the driver settings from the menu(more details below). 
+The arduino mega board is getting sample results from all of the force sensing resistors and if it detects the fact that none of them or just one is pressed, it will warn the driver to place both of his hands on the steering wheel.How? Through the red led and also through the speaker using pre-established voice bots. All you have to do is to configure the driver settings from the menu(more details below). 
 
 
 #
