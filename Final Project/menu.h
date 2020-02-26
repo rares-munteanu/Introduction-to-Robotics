@@ -511,6 +511,7 @@ void manageMenus(int _pressedButton) {
         resetVariables();
         changeMenu(0);
         myMP3.pause();
+        myMP3.stopRepeat();
         digitalWrite(ledPin, LOW);
         break;
       }
@@ -518,6 +519,7 @@ void manageMenus(int _pressedButton) {
         resetVariables();
         changeMenu(0);
         myMP3.pause();
+        myMP3.stopRepeat();
         digitalWrite(ledPin, LOW);
         break;
       }

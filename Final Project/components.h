@@ -93,7 +93,7 @@ const int pressureSensorsPins[4] { A1, A2, A3, A4 };
 bool fsrTouched[] {false, false, false, false};
 int sensorsValues[4];
 const int nrOfSensors  = 4;
-int tHold = 80;  // sensitivity
+int tHold = 70;  // sensitivity
 bool shiftingGear = false;
 
 void readSensors() {
