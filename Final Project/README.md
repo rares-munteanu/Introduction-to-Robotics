@@ -34,7 +34,7 @@ First of all, one of the most important tool the smart cover has is the alcohol 
 |--|--|
 | Welcome Screen |  <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/wScreen.gif" width="50%" height="50%"> <p>|
 | <p align="center"> - Starting engine - when you press Start engine button the alcohol sensor will measure the air for 5 seconds </p> | <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/startingEngine.gif" width="50%" height="50%"> <p> |
-| Reaction time bar | <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/timeBar.gif" width="50%" height="50%"> <p>  |
+| Reaction time bar s| <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/timeBar.gif" width="50%" height="50%"> <p>  |
 
 #
 
