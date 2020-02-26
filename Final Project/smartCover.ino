@@ -2,6 +2,7 @@
 
 void setup() {
 
+  //Mp3 mini player setup
   Serial.begin(115200);
   mySerial.begin(9600);
   myMP3.begin(mySerial);
@@ -15,6 +16,7 @@ void setup() {
   pinMode(aoutPin, INPUT);
   pinMode(ledPin, OUTPUT);
 
+  //LCD orientation setup
   lcd.InitLCD(LANDSCAPE);
   touch.InitTouch(LANDSCAPE);
   touch.setPrecision(PREC_HI);

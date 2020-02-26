@@ -1,6 +1,7 @@
 #ifndef COLORS_H
 #define COLORS_H
 
+//Some colors code to simplify drawing on the lcd
 #define Black           0x0000      /*   0,   0,   0 */
 #define Navy            0x000F      /*   0,   0, 128 */
 #define DarkGreen       0x03E0      /*   0, 128,   0 */

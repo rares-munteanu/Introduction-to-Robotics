@@ -4,6 +4,7 @@
 #include "PROGMEM_READ.h"
 #include "components.h"
 
+//Fonts for lcd text printing
 extern uint8_t Ubuntu[];
 extern uint8_t UbuntuBold[];
 extern uint8_t Arial_round_16x24[];
@@ -14,7 +15,8 @@ extern uint8_t SmallFont[];
 extern uint8_t SevenSegNumFont[];
 extern uint8_t battery_24x48[];
 
-bool normalButtons = true; //Normal buttons template
+
+bool normalButtons = true; //Used for knowing if normal buttons template is selected
 
 //Some functions declarations
 void clearScreen();
@@ -35,9 +37,10 @@ byte batteryLevel = 5;
 const unsigned short signatureHeight = 25;
 const unsigned short dividerHeight = 10;
 
+//Menu variables
 bool _welcomeScreen = true;
-bool blinks[] = {false, false, false};
-//Battery,
+bool blinks[] = {false, false};//Battery
+
 unsigned long long lastTime[8]; // used with milliss
 //WelcomeScreen, Battery Decrease, Battery Blinking, Alcohol Sensor,
 //Screen nr 8/9 Timer,  Alcohol Printing Time,Gear shifting time
@@ -53,6 +56,7 @@ const char signature[40] PROGMEM {" Rares Munteanu  Smart Cover"};
 const byte menusLength[] {1, 3, 3, 4, 5, 2, 2, 1, 2, 2};
 int buttonIndex = -1;
 int pressedButton;
+
 
 const char menusInfo[][10][40] PROGMEM {
   {
@@ -102,6 +106,7 @@ const char menusInfo[][10][40] PROGMEM {
   }
 };
 
+//Menus texts position on the lcd
 const short menusPos[][10][2] PROGMEM {
   { //Main menu
     {CENTER, 20},
@@ -165,16 +170,22 @@ const byte menusFont[][10] {
 };
 
 bool hasButtons[] = {true, true, true, true, true, true, true, false, false, false};
+// Used to know if a menu has buttons 
+
 bool isMenu[] = {false, false, false, false, false, false, false, false, false, false};
+//Used not to redraw the same menu everytime if nothing has changed
+
 int buttons[20];
 //enum allButtons {startEngine, driverSettings, displaySettings, info, backButton};
-int currentMenu = 0;//Main Menu
+int currentMenu = 0;//Main Menu in the beginning
 int howManyMenus = 10;
 
-//Used in combinations with hasButtons
+//To know how many buttons a menu has, used in combinations with hasButtons
 const short howManyButtons[] {
   4, 1, 7, 5, 1, 1, 1, 0, 0, 1
 };
+
+//The id for every button from the menus
 const int menuButtons[][10] PROGMEM {
   { 0, 1, 2, 3 },
   {4},
@@ -185,6 +196,8 @@ const int menuButtons[][10] PROGMEM {
   {19}
 };
 
+
+//Buttons position on the lcd
 //4 -> x,y,width,height
 const int buttonsPos[][10][4] PROGMEM{
   {
@@ -213,7 +226,6 @@ const int buttonsPos[][10][4] PROGMEM{
     {360, 240, 100, 25}
   },
   {
-    //    {320, 230, 100, 25}
     {360, 240, 100, 25}
   },
   {
@@ -261,6 +273,7 @@ const char buttonsText[][10][40] {
   }
 };
 
+//Function to create buttons and initialize the inside text
 void initializeButtons() {
   int x, y, width, height;
   myButtons.setButtonColors(Black, DarkGrey, White, Blue, 0xCE2C); //Normal buttons template
@@ -278,6 +291,7 @@ void initializeButtons() {
   }
 }
 
+//Function that clears the screen and prepare the lcd for changing the menu to another one
 void changeMenu(int whatMenu) {
   if (whatMenu < 0) {
     clearScreen();
@@ -299,6 +313,9 @@ void changeMenu(int whatMenu) {
   currentMenu = whatMenu;
 }
 
+//Function used to gray out the buttons from
+// driver settings and display settings that 
+// has already been selected
 void manageSelectedButtons(int whatButton) {
   switch (whatButton) {
     case 5: {
@@ -354,6 +371,9 @@ void manageSelectedButtons(int whatButton) {
   }
 }
 
+//Function to draw the buttons and the text on lcd
+// AND handle the warning messages when the driver try
+// to start the engine
 void drawMenus() {
   if (!isMenu[currentMenu]) {
     clearScreen();
@@ -389,15 +409,15 @@ void drawMenus() {
     manageHands();
 }
 
-
 void clearArea(int x, int y, int width, int height) {
   lcd.setColor(backColor);
   lcd.fillRect(x, y, x + width, y + height);
 }
 
 
+//Function to manage what the lcd should show depending on what button
+//has been pressed
 void manageMenus(int _pressedButton) {
-  //  Serial.println(pressedButton);
   switch (_pressedButton) {
     case -1: {
         break;
@@ -533,6 +553,7 @@ unsigned short getFontHeight(uint8_t font[]) {
   return font[1];
 }
 
+//Draw the lower screen signature
 void drawSignature() {
 
   const short displayXSize = lcd.getDisplayXSize();
@@ -570,7 +591,7 @@ void drawBattery(uint16_t color = VGA_WHITE) {
   lcd.setColor(localColor);
 }
 
-
+//Draw the upper screen model
 void drawModel() {
   const short displayXSize = lcd.getDisplayXSize();
   const short displayYSize = lcd.getDisplayYSize();
@@ -628,6 +649,8 @@ void clearScreen() {
   drawBattery();
 }
 
+//Function used to print text from the menu 
+// with specific text fonts
 void manageFonts(int which) {
   switch (menusFont[currentMenu][which]) {
     case 0: {

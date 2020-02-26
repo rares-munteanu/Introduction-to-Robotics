@@ -17,8 +17,8 @@ DFPlayerMini_Fast myMP3;
 
 //Common Variables
 const int ledPin = 7;
-int transmission = 0;// 0-manual;1-automatic
-uint16_t backColor = Black;
+int transmission = 0;// 0-manual; 1-automatic
+uint16_t backColor = Black; //Pre-established background color - can change in settings
 int voiceVolume = 25;
 int voiceGender = 2; //Male;
 
@@ -31,7 +31,6 @@ void resetVariables();
 
 bool engineStarted = false; //engine
 
-
 //MQ3 - alcohol sensor variables
 const int doutPin = 8;
 const int aoutPin = A0;
@@ -40,7 +39,8 @@ int limit;
 bool measuringMQ3 = false;
 bool drunk = false;
 
-
+//Function to measure the alcohol vapors in the air for 5 seconds 
+// when start engine button has ben pressed
 void manageBreathalyser() {
   if (measuringMQ3) {
     if (millis() - lastTime[3] < times[3]) {
@@ -63,6 +63,8 @@ void manageBreathalyser() {
   }
 }
 
+//Function to handle what message appear on the screen
+//depending on what decision alcohol sensor has made
 void manageMQ3ScreenTime() {
   if (millis() - lastTime[4] > times[4]) {
     if (currentMenu == 8) {
@@ -80,6 +82,7 @@ void manageMQ3ScreenTime() {
   }
 }
 
+
 void printMQ3Value() {
   if (millis() - lastTime[5] > times[5]) {
     lcd.printNumI(mq3Value, 285, 180);
@@ -95,6 +98,7 @@ int sensorsValues[4];
 const int nrOfSensors  = 4;
 int tHold = 70;  // sensitivity
 bool shiftingGear = false;
+
 
 void readSensors() {
   for (int i = 0; i < nrOfSensors; i++) {
@@ -118,6 +122,8 @@ bool bothHands() {
   return false;
 }
 
+//Function that handles the warning protocol and the transmission two scenarios
+// when the driver takes his hands off the steering wheel
 void manageHands() {
   if (engineStarted) {
     bool _bothHands = bothHands();
@@ -170,6 +176,8 @@ void manageHands() {
   }
 }
 
+//When getting back to main menu
+// some variables need to be resetted
 void resetVariables() {
   measuringMQ3 = false;
   drunk = false;
