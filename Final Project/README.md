@@ -8,6 +8,7 @@
 
 #### Components used:
  - 1 3.5" TFT LCD
+ - 4 FSR ( force-sensing resistors ) 
  - 1 speaker
  - 1 alcohol sensor
  - 1 LED
