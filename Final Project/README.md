@@ -35,7 +35,6 @@ First of all, one of the most important tool the smart cover has is the alcohol 
 ### Exemplifying functionalities
 | Details | Animation |
 |--|--|
-| <p align="center">Welcome Screen</p> |  <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/wScreen.gif" width="80%" height="80%"> <p>|
 | <p align="center"> - Starting engine - when you press Start engine button the alcohol sensor will measure the air for 5 seconds </p> | <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/startingEngine.gif" width="80%" height="80%"> <p> |
 | <p align="center">If the alcohol sensor detects alcohol in the air will send a signal to the arduino board that handles the situation (turn on red LED, send LOW signal to relay etc).</p>| <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/detectedAlcohol.gif" width="80%" height="80%"> <p> |
 | <p align="center">As I said before the driver will not be allowed to turn on the car if the alcohol is sensed in the air.</p>| <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/engineTurnedOff.gif" width="80%" height="80%"> <p> |
