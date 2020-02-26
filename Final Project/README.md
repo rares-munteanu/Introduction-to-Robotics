@@ -2,10 +2,13 @@
 ## Name:  ***Smart Cover*** 
 ### Description: 
 **Smart Cover** is the final project within the 'Introduction to Robotics' course. It is mainly designed for beginner drivers to decrease the car accident rate. It is a smart steering wheel cover that sense the touch of the driver hands with the help of some force-sensing resistor so it's role is mainly to warn the driver when he is not focused on actually driving. It also has an alcohol sensor that will be connected to the turning on mechanism of the car and if it senses alcohol vapors in the air will not alow the driver to turn on the engine. 
-### Project details:
 
+#
+<p align = "center">Whole ensemble</p>
 <p align = "center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/12.jpeg" width="70%" height="70%"></p>
+#
 
+### Project details:
 #### Components used:
  - 1 Arduino Mega
  - 1 3.5" TFT LCD
