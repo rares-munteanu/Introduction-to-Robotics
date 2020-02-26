@@ -25,6 +25,7 @@
 | TFT LCD | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/lcdConnection.png" width="70%" height="70%"></p>|
 | Force sensing resistor | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/fsr.png" width="70%" height="70%"></p>|
 
+
 #
 
 ### *How it actually works:*
@@ -38,6 +39,7 @@ First of all, one of the most important tool the smart cover has is the alcohol 
 | <p align="center"> - Starting engine - when you press Start engine button the alcohol sensor will measure the air for 5 seconds </p> | <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/startingEngine.gif" width="80%" height="80%"> <p> |
 | <p align="center">If the alcohol sensor detects alcohol in the air will send a signal to the arduino board that handles the situation (turn on red LED, send LOW signal to relay etc).</p>| <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/detectedAlcohol.gif" width="80%" height="80%"> <p> |
 | <p align="center">As I said before the driver will not be allowed to turn on the car if the alcohol is sensed in the air.</p>| <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/engineTurnedOff.gif" width="80%" height="80%"> <p> |
+ | <p align="center">If not alcohol is sensed by the sensor the driver is allowed to turn on the engine and the warning to place his hands on the steering wheel will appear</p>| <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/goodToGo.gif" width="80%" height="80%"> <p> |
 
 #
 
