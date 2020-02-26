@@ -7,12 +7,10 @@
 <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/12.jpeg" width="70%" height="70%">
 
 #### Components used:
- - 1 Liquid Crystal Display
- - 1 8x8 Matrix Led
- - 2 speakers 
- - 1 Joystick
- - 5 buttons 
- - 1 switch button
+ - 1 3.5" TFT LCD
+ - 1 speaker
+ - 1 alcohol sensor
+ - 1 LED
  - 1 DFPlayer mini ( small mp3 player)
 
 | Component | Schematic |
