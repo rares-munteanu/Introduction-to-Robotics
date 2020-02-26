@@ -46,12 +46,11 @@ First of all, one of the most important tool the smart cover has is the alcohol 
 ### Menu details:
 I built several menus on TFT LCD for the driver in order to configure the whole system. In the main menu you can find the start engine button whose functionality I have detailed above and three other menu buttons to enter. In the driver settings menu you can select the bot's voice volume, the voice gender, and the most important, what kind of transmission you have so the system will know what kind of scenario it should apply. In the display settings menu, you can change the graphical interface details like background color, and buttons template. In the info menu there are some brief information about the project. Below you can see how the menus appear.
 
-I built several menus on TFT LCD in order to show important details about the game and make a small setup before the actual gameplay. In "***HScore***" menu you can see last 3 high scores and the names associated. Interesting fact is that every high score made is saved in EEPROM and even though the arduino is shutted down the high scores will remain the same. In "***Settings***" menu the player can change his nickname(see all functionalities video below) and he can choose from what level to start (remember that starting from higher level won't give you an advantage but on the contrary you will get to a certain level with lower score than if you would have started from level 1). In "***Info***" menu there will be displayed the game name, my name, my github link and my robotics course name from University of Bucharest.
-
-
 |  <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/menu1.jpeg"></p>  |  <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/menu4.jpeg" width="100%" height="100%"></p>  |
 |---|---|
 |  <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/menu3.jpeg"></p> | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/menu4.jpeg" width="100%" height="100%"></p>  | 
 
+#
+## ***Useful links*** 
 ### [All functionalities video](https://www.youtube.com/watch?v=lj2yGbka7MQ&feature=youtu.be)
 ### [BOM file Link](https://docs.google.com/spreadsheets/d/1Htry010sDG5Vxl1XxuDkIDsEU6a6pIBbHVVmY9l-o_E/edit#gid=79602340)
