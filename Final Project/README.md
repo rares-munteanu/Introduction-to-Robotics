@@ -29,10 +29,10 @@ First of all, one of the most important tool the smart cover has is the alcohol 
 
 #
 
-### How it actually works
-| Name and usage| Animation |
+### Exemplifying functionalities
+| Details | Animation |
 |--|--|
-|Christmas Tree while you walk through the menu|  <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/cTree.gif" width="50%" height="50%"> <p>|
+| Welcome Screen |  <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/wScreen.gif" width="50%" height="50%"> <p>|
 | Start Game animation | <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/startAnimation.gif" width="50%" height="50%"> <p> |
 | Reaction time bar | <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/timeBar.gif" width="50%" height="50%"> <p>  |
 
