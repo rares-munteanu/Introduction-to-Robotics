@@ -23,9 +23,9 @@
 | Force sensing resistor | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/fsr.png" width="70%" height="70%"></p>|
 
 #
-### *How it actually works:*
-The arduino mega board is getting sample results from all of the force sensing resistors and if it detects the fact that none of them or just one is pressed, it will warn the driver to place both of his hands on the steering wheel.How? Through the red led and also through the speaker using pre-established voice bots. All you have to do is to configure the driver settings from the menu(more details below). 
 
+### *How it actually works:*
+First of all, one of the most important tool the smart cover has is the alcohol sensor. The sensor will be connected through a relay to the turning on mechanism of the car and if it senses alcohol vapors in the air, with the help of the arduino board will send a LOW signal to the relay so the driver cannot turn on the engine and obviously cannot drive the car. Further more, the arduino mega board is getting sample results from all of the force sensing resistors and if it detects the fact that none of them or just one is pressed, it will warn the driver to place both of his hands on the steering wheel. How? Through the red led and also through the speaker using pre-established voice bots. All you have to do is to configure the driver settings from the menu(more details below). 
 
 #
 
