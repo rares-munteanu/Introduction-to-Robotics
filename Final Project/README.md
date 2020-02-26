@@ -52,5 +52,5 @@ I built several menus on TFT LCD for the driver in order to configure the whole 
 
 #
 ## ***Useful links*** 
-### [All functionalities video](https://www.youtube.com/watch?v=lj2yGbka7MQ&feature=youtu.be)
+### [All functionalities video](https://youtu.be/BiZti-loPk0)
 ### [BOM file Link](https://docs.google.com/spreadsheets/d/1Htry010sDG5Vxl1XxuDkIDsEU6a6pIBbHVVmY9l-o_E/edit#gid=79602340)
