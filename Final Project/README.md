@@ -32,9 +32,9 @@ First of all, one of the most important tool the smart cover has is the alcohol 
 ### Exemplifying functionalities
 | Details | Animation |
 |--|--|
-| Welcome Screen |  <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/wScreen.gif" width="50%" height="50%"> <p>|
-| <p align="center" width = "300px"> - Starting engine - when you press Start engine button the alcohol sensor will measure the air for 5 seconds </p> | <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/startingEngine.gif" width="50%" height="50%"> <p> |
-| Reaction time bar s| <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/timeBar.gif" width="50%" height="50%"> <p>  |
+| <p align="center">Welcome Screen</p> |  <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/wScreen.gif" width="80%" height="80%"> <p>|
+| <p align="center"> - Starting engine - when you press Start engine button the alcohol sensor will measure the air for 5 seconds </p> | <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/startingEngine.gif" width="80%" height="80%"> <p> |
+| <p align="center">If the alcohol sensor detects alcohol in the air will send a signal to the arduino board that handles the situation. As I said before the driver will no be allowed to turn on the car</p>| <p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/detectedAlcohol.gif" width="80%" height="80%"> <p>  |
 
 #
 
