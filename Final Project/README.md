@@ -19,6 +19,7 @@
 | Speaker |<p align="center"><img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/speakerConnection.jpeg" style="transform:rotate(90deg)"></p>  |
 | DFPlayer mini | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Matrix%20Game/Images/dfPlayer.jpg" width="70%" height="70%"></p>|
 | TFT LCD | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/lcdConnection.png" width="70%" height="70%"></p>|
+| Force sensing resistor | <p align="center"> <img src="https://github.com/rares-munteanu/IntroductionToRobotics/blob/master/Final%20Project/Images/fsr.png" width="70%" height="70%"></p>|
 
 
 ### Animations on matrix led:
